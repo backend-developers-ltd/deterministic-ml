@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/reef-technologies/cookiecutter-rt-pkg",
+  "commit": "d9240e46239f3622c739043a5e6cbf605a6244d2",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "package_name": "deterministic_ml",
+      "repository_github_url": "https://github.com/backend-developers-ltd/deterministic-ml",
+      "is_django_package": "n",
+      "_jinja2_env_vars": {
+        "block_start_string": "# COOKIECUTTER{%",
+        "block_end_string": "%}"
+      },
+      "_template": "https://github.com/reef-technologies/cookiecutter-rt-pkg"
+    }
+  },
+  "directory": null
+}
