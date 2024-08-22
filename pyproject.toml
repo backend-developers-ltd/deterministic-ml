@@ -21,6 +21,15 @@ dynamic = [
 dependencies = [
 ]
 
+[project.optional-dependencies]
+torch = [
+    "torch>=1.10",
+]
+vllm = [
+    "torch>=1.10",
+    "vllm>=0.4",
+]
+
 [project.urls]
 "Source" = "https://github.com/backend-developers-ltd/deterministic-ml"
 "Issue Tracker" = "https://github.com/backend-developers-ltd/deterministic-ml/issues"
@@ -42,6 +51,11 @@ test = [
     "pytest-apiver",
     "pytest-asyncio",
     "pytest-xdist",
+    "paramiko",
+    "numpy",
+    "torch",
+    "build>=1.2.1",
+    "rich>=13.7.1",
 ]
 lint = [
     "codespell[toml]",
@@ -50,6 +64,8 @@ lint = [
     "types-freezegun",
     "types-python-dateutil",
     "types-requests",
+    "types-PyYAML",
+    "types-paramiko",
 ]
 release = [
     "towncrier",
@@ -131,5 +147,7 @@ module = [
     "nox",
     "pytest",
     "tests.*",
+    "tools.*",
+    "vllm",
 ]
 ignore_missing_imports = true
