@@ -17,11 +17,10 @@ Through [Integration testing](docs/MANUAL_INTEGRATION_TESTING.md) we can see tha
 
 Here is the summary of the results for vLLM running llama3 model:
 * each card GPU model (combined with its vRAM configuration) has a different output, but is consistent across runs
-* the output is consistent across different CUDA versions (more testing is needed here, only small range was tested)
 * GPU interface (SXM4, PCIe) does not affect the output
 * A100 80GB and A100X 80GB produce the same output
 * 2x A100 40GB do not produce the same output as 1x A100 80GB
-* driver versions 535.129.03 and 555.58.02 produce the same output
+* driver&CUDA may influence results, especially in case of cards with higher "Compute Capacity" feature set, e.g. H100, as opposed to A100 which seems to produce same results with wider range of versions. More in-depth investigation is required here. This will likely depend on exactl ML model or to be more exact - features used to execute that model.
 
 To learn more about this particular example, please refer to the [Integration testing](docs/MANUAL_INTEGRATION_TESTING.md) documentation and the [tests/integration/experiments/vllm_llama_3_70b_instruct_awq](tests/integration/experiments/vllm_llama_3_70b_instruct_awq) experiment code.
 
