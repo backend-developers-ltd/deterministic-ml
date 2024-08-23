@@ -1,0 +1,6 @@
+comment: 1x H100 NVL
+experiment: vllm_llama_3_70b_instruct_awq
+experiment_hash: exp_hash_v1:7aa490
+run_id: vllm_llama_3_70b_instruct_awq/2024-08-22_12-49-14_1x_h100_nvl
+slug: 1x_h100_nvl
+timestamp: 2024-08-22_12-49-14

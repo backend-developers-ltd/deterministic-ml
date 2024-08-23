@@ -1,0 +1,6 @@
+comment: 2x A100 SXM4 40GB
+experiment: vllm_llama_3_70b_instruct_awq
+experiment_hash: exp_hash_v1:7aa490
+run_id: vllm_llama_3_70b_instruct_awq/2024-08-22_12-23-42_2x_a100_sxm4_40gb
+slug: 2x_a100_sxm4_40gb
+timestamp: 2024-08-22_12-23-42

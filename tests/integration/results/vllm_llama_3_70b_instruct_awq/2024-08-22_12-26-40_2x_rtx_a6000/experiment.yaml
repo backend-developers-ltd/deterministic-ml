@@ -1,0 +1,6 @@
+comment: 2x RTX A6000
+experiment: vllm_llama_3_70b_instruct_awq
+experiment_hash: exp_hash_v1:7aa490
+run_id: vllm_llama_3_70b_instruct_awq/2024-08-22_12-26-40_2x_rtx_a6000
+slug: 2x_rtx_a6000
+timestamp: 2024-08-22_12-26-40
