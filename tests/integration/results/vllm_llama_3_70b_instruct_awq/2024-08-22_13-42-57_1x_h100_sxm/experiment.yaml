@@ -1,0 +1,6 @@
+comment: 1x H100 SXM
+experiment: vllm_llama_3_70b_instruct_awq
+experiment_hash: exp_hash_v1:7aa490
+run_id: vllm_llama_3_70b_instruct_awq/2024-08-22_13-42-57_1x_h100_sxm
+slug: 1x_h100_sxm
+timestamp: 2024-08-22_13-42-57

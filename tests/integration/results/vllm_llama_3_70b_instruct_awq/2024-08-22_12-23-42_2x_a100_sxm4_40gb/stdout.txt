@@ -1,0 +1,34 @@
+gpu_count=2
+Starting model loading
+INFO 08-22 10:24:31 awq_marlin.py:89] The model is convertible to awq_marlin during runtime. Using awq_marlin kernel.
+INFO 08-22 10:24:31 config.py:729] Defaulting to use mp for distributed inference
+INFO 08-22 10:24:31 llm_engine.py:174] Initializing an LLM engine (v0.5.4) with config: model='casperhansen/llama-3-70b-instruct-awq', speculative_config=None, tokenizer='casperhansen/llama-3-70b-instruct-awq', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=8192, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=awq_marlin, enforce_eager=True, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None), seed=0, served_model_name=casperhansen/llama-3-70b-instruct-awq, use_v2_block_manager=False, enable_prefix_caching=False)
+WARNING 08-22 10:24:32 multiproc_gpu_executor.py:59] Reducing Torch parallelism from 32 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 08-22 10:24:32 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=842)[0;0m INFO 08-22 10:24:32 multiproc_worker_utils.py:215] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=842)[0;0m INFO 08-22 10:24:33 utils.py:841] Found nccl from library libnccl.so.2
+INFO 08-22 10:24:33 utils.py:841] Found nccl from library libnccl.so.2
+INFO 08-22 10:24:33 pynccl.py:63] vLLM is using nccl==2.20.5
+[1;36m(VllmWorkerProcess pid=842)[0;0m INFO 08-22 10:24:33 pynccl.py:63] vLLM is using nccl==2.20.5
+INFO 08-22 10:24:33 custom_all_reduce_utils.py:203] generating GPU P2P access cache in /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+INFO 08-22 10:24:40 custom_all_reduce_utils.py:234] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+[1;36m(VllmWorkerProcess pid=842)[0;0m INFO 08-22 10:24:40 custom_all_reduce_utils.py:234] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+INFO 08-22 10:24:40 shm_broadcast.py:235] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1], buffer=<vllm.distributed.device_communicators.shm_broadcast.ShmRingBuffer object at 0x780bbf51f0d0>, local_subscribe_port=48445, remote_subscribe_port=None)
+INFO 08-22 10:24:40 model_runner.py:720] Starting to load model casperhansen/llama-3-70b-instruct-awq...
+[1;36m(VllmWorkerProcess pid=842)[0;0m INFO 08-22 10:24:40 model_runner.py:720] Starting to load model casperhansen/llama-3-70b-instruct-awq...
+INFO 08-22 10:24:40 weight_utils.py:225] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=842)[0;0m INFO 08-22 10:24:40 weight_utils.py:225] Using model weights format ['*.safetensors']
+INFO 08-22 10:27:21 model_runner.py:732] Loading model weights took 18.5516 GB
+[1;36m(VllmWorkerProcess pid=842)[0;0m INFO 08-22 10:27:22 model_runner.py:732] Loading model weights took 18.5516 GB
+INFO 08-22 10:27:27 distributed_gpu_executor.py:56] # GPU blocks: 5022, # CPU blocks: 1638
+model loading took 178.84 seconds
+Starting 8 responses generation
+8 responses generation took 160.77 seconds
+{'Count to 1000, skip unpopular numbers': 'ceff25d8303b1a21729c9c6685541976d5236852cac0ef5626e5cdf54f76e7be4504d7e21d8c6805258794ffb0ec1a6635486797c1ac098666be3f1605650b70',
+ 'Describe justice system in UK vs USA in 2000-5000 words': '5efab605ab72f01ce1f06b22898d59584fe9395fe478029d3120c282332331dbdad870ce6a77771eddbfacc28bc09e58de88a53ae623610bf7dfda7f56d91b6e',
+ 'Describe schooling system in UK vs USA in 2000-5000 words': 'b6eb47984ecfd87923e1a6e929381a3398208165e87bb0a1d1acc69677aea74d4156a3502f5aabc7340bc96d879bd10f7f53f1b728ed9833ca99d601f0886afd',
+ 'Explain me some random problem for me in 2000-5000 words': 'c504642a6f6c90f2ad6d46b9e43ebfd8d055f76613df17609c360734069a9acd7e0c9cbc2f49b636d80c510adb84b04d962cb5d5d23a179fbf60873ed66fefa7',
+ 'Tell me entire history of USA': '24bc6463cf8635c4ed91234966fe4c1013318f86de7e1071d44c3d84ca1dda2a891998d5ad2454ef6701e9173fa66f3d4a2655d541d9b08ff057b0bfa15e56fa',
+ 'Write a ballad. Pick a random theme.': 'cbe4bcec1e75a20c03396126efc338bb10b49fa75e86494095b71d985f2f071ea611b3ca76781abe52ca9b14c3720f15459d00ec755e02ac1113adeb91cd73e5',
+ 'Write an epic story about a dragon and a knight': '2fc7b6d29f3c45a25c2aa80295bb038239e6641b65eec7e108e560d399378b69556dfbfeb728a2e7fd7efd0173e1b0fd62ae7240f69f5c810c2a6671f26e197e',
+ 'Write an essay about being a Senior developer.': '36cd178f3af54c90392779118a679a8905e3aeea8e4f471469886b61ab047b1c05beaef7e04d6f22eefe5dc6b0ca5ea1b1bbbe31a1961f7a3138b087734f5b09'}

@@ -1,0 +1,19 @@
+gpu_count=1
+Starting model loading
+INFO 08-22 10:16:34 awq_marlin.py:89] The model is convertible to awq_marlin during runtime. Using awq_marlin kernel.
+INFO 08-22 10:16:34 llm_engine.py:174] Initializing an LLM engine (v0.5.4) with config: model='casperhansen/llama-3-70b-instruct-awq', speculative_config=None, tokenizer='casperhansen/llama-3-70b-instruct-awq', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=8192, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=awq_marlin, enforce_eager=True, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None), seed=0, served_model_name=casperhansen/llama-3-70b-instruct-awq, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 08-22 10:16:35 model_runner.py:720] Starting to load model casperhansen/llama-3-70b-instruct-awq...
+INFO 08-22 10:16:36 weight_utils.py:225] Using model weights format ['*.safetensors']
+INFO 08-22 10:17:10 model_runner.py:732] Loading model weights took 37.0561 GB
+INFO 08-22 10:17:16 gpu_executor.py:102] # GPU blocks: 6068, # CPU blocks: 819
+model loading took 46.38 seconds
+Starting 8 responses generation
+8 responses generation took 213.59 seconds
+{'Count to 1000, skip unpopular numbers': '5fa4c4a18a1534b96c2eb2c5a30f63da0237b338aebf745d27d3d73dbc8dedfa2aed7070799440ac37e8610f9dd4926371f77a98e79c50a2c8b5b583cbf7c86e',
+ 'Describe justice system in UK vs USA in 2000-5000 words': '83c0ec6b7f37d53b798093724f72a40195572be308b65471e8d2aae18379ef79655233858eb842ebf73967b058c38685fbea9543a3d1b3b4f41684b5fd95eede',
+ 'Describe schooling system in UK vs USA in 2000-5000 words': 'f5d13dd9ee6b6b0540bd3e4adf6baec37ff5d4dc3e1158344f5ab2c690880de0ac1263d3f2691d6b904271298ba0b023adf541ba2f7fb1add50ba27f7a67d3a1',
+ 'Explain me some random problem for me in 2000-5000 words': '143fc78fb373d10e8b27bdc3bcd5a5a9b5154c8a9dfeb72102d610a87cf47d5cfeb7a4be0136bf0ba275e3fa46e8b6cfcbeb63af6c45714abcd2875bb7bd577c',
+ 'Tell me entire history of USA': '210fa7578650d083ad35cae251f8ef272bdc61c35daa08eb27852b3ddc59262718300971b1ac9725c9ac08f63240a1a13845d6c853d2e08520567288d54b5518',
+ 'Write a ballad. Pick a random theme.': '21c8744c38338c8e8c4a9f0efc580b9040d51837573924ef731180e7cc2fb21cb96968c901803abad6df1b4f035096ec0fc75339144f133c754a8303a3f378e3',
+ 'Write an epic story about a dragon and a knight': '81ff9b82399502e2d3b0fd8f625d3c3f6141c4c179488a247c0c0cc3ccd77828f0920c3d8c03621dfe426e401f58820a6094db5f3786ab7f12bfb13d6224ef94',
+ 'Write an essay about being a Senior developer.': '0921d5c3b2e04616dbb655e6ba4648911b9461a4ecdb0d435ebf190d903a92c20cf1343d98de65b6e9690f5e6b1c8f3bfc58e720168fa54dc0e293f0f595505c'}

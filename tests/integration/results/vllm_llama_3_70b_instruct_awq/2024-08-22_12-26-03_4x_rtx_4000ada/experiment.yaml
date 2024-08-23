@@ -1,0 +1,6 @@
+comment: 4x RTX 4000Ada
+experiment: vllm_llama_3_70b_instruct_awq
+experiment_hash: exp_hash_v1:7aa490
+run_id: vllm_llama_3_70b_instruct_awq/2024-08-22_12-26-03_4x_rtx_4000ada
+slug: 4x_rtx_4000ada
+timestamp: 2024-08-22_12-26-03

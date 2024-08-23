@@ -1,0 +1,36 @@
+gpu_count=2
+Starting model loading
+INFO 08-22 10:27:33 awq_marlin.py:89] The model is convertible to awq_marlin during runtime. Using awq_marlin kernel.
+INFO 08-22 10:27:33 config.py:729] Defaulting to use mp for distributed inference
+INFO 08-22 10:27:33 llm_engine.py:174] Initializing an LLM engine (v0.5.4) with config: model='casperhansen/llama-3-70b-instruct-awq', speculative_config=None, tokenizer='casperhansen/llama-3-70b-instruct-awq', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=8192, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=awq_marlin, enforce_eager=True, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None), seed=0, served_model_name=casperhansen/llama-3-70b-instruct-awq, use_v2_block_manager=False, enable_prefix_caching=False)
+WARNING 08-22 10:27:33 multiproc_gpu_executor.py:59] Reducing Torch parallelism from 24 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 08-22 10:27:33 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=761)[0;0m INFO 08-22 10:27:34 multiproc_worker_utils.py:215] Worker ready; awaiting tasks
+INFO 08-22 10:27:34 utils.py:841] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=761)[0;0m INFO 08-22 10:27:34 utils.py:841] Found nccl from library libnccl.so.2
+INFO 08-22 10:27:34 pynccl.py:63] vLLM is using nccl==2.20.5
+[1;36m(VllmWorkerProcess pid=761)[0;0m INFO 08-22 10:27:34 pynccl.py:63] vLLM is using nccl==2.20.5
+INFO 08-22 10:27:35 custom_all_reduce_utils.py:203] generating GPU P2P access cache in /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+INFO 08-22 10:27:45 custom_all_reduce_utils.py:234] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+WARNING 08-22 10:27:45 custom_all_reduce.py:127] Custom allreduce is disabled because your platform lacks GPU P2P capability or P2P test failed. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=761)[0;0m INFO 08-22 10:27:45 custom_all_reduce_utils.py:234] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+[1;36m(VllmWorkerProcess pid=761)[0;0m WARNING 08-22 10:27:45 custom_all_reduce.py:127] Custom allreduce is disabled because your platform lacks GPU P2P capability or P2P test failed. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 08-22 10:27:45 shm_broadcast.py:235] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1], buffer=<vllm.distributed.device_communicators.shm_broadcast.ShmRingBuffer object at 0x7886d2e7d590>, local_subscribe_port=45163, remote_subscribe_port=None)
+INFO 08-22 10:27:45 model_runner.py:720] Starting to load model casperhansen/llama-3-70b-instruct-awq...
+[1;36m(VllmWorkerProcess pid=761)[0;0m INFO 08-22 10:27:45 model_runner.py:720] Starting to load model casperhansen/llama-3-70b-instruct-awq...
+INFO 08-22 10:27:45 weight_utils.py:225] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=761)[0;0m INFO 08-22 10:27:45 weight_utils.py:225] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=761)[0;0m INFO 08-22 10:29:21 model_runner.py:732] Loading model weights took 18.5518 GB
+INFO 08-22 10:29:23 model_runner.py:732] Loading model weights took 18.5518 GB
+INFO 08-22 10:29:35 distributed_gpu_executor.py:56] # GPU blocks: 6941, # CPU blocks: 1638
+model loading took 126.15 seconds
+Starting 8 responses generation
+8 responses generation took 392.59 seconds
+{'Count to 1000, skip unpopular numbers': '90e9f7cd91517e389cadb86c442cef8db2957198de38d8f8754ba022477e395d3a35b5f4704510ed3ee93fc368b11850f3e4e3751bb52b4fcb0258bc954ceeeb',
+ 'Describe justice system in UK vs USA in 2000-5000 words': 'aaeca816cbedbdedf9193ee7b57795823ba4564e64f0283da95738e2f27c0f02d92977ef21701be345b01d667305b77987fec9439c2600216cc4e1be9e856db8',
+ 'Describe schooling system in UK vs USA in 2000-5000 words': 'b6eb47984ecfd87923e1a6e929381a3398208165e87bb0a1d1acc69677aea74d4156a3502f5aabc7340bc96d879bd10f7f53f1b728ed9833ca99d601f0886afd',
+ 'Explain me some random problem for me in 2000-5000 words': '011261f17df06f112cc781eda2fb1f1ffcef58a9247c8e1d83fd8e61a16e18b1953018d9b0f9b6224b38a69d5f3f7ecc0cf305cf0e66c9bd26ec5224ed404fad',
+ 'Tell me entire history of USA': '9a83ac06c7986da8448587ab09727bd297a96c59055fac300a2541b23cc2b88b4cdf035babf1a85a6b9aed6c18ba5659947de2774308ee50c911c515359f8cae',
+ 'Write a ballad. Pick a random theme.': 'f1a4f47af63fbb1c6333a6afbf187a89505731d60a3dd97d352e1e5261aaeb9bb79e4d3a6cdb2c251b4d3866eea9654bbd35248b2824fefb8be0e97d90b68ffc',
+ 'Write an epic story about a dragon and a knight': '72f9f5a5419718e907814f68e849907d2c941aa21498cbcb95b0e94a33f8989a622a072550fc04165505b1ac96278ae2b82928adb59059e136b4f2dea945faa4',
+ 'Write an essay about being a Senior developer.': '4277b57bea5b502a7810fc42e1d3055d34d47b9d4d77e03312ed42cb0fbaf045a203087ab110088ba9c6c88ae9a7233cf39d9b7fc4040bc05708101f3e7d2eec'}

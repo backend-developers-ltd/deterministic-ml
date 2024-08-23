@@ -1,0 +1,6 @@
+comment: 1x H100 PCIE
+experiment: vllm_llama_3_70b_instruct_awq
+experiment_hash: exp_hash_v1:7aa490
+run_id: vllm_llama_3_70b_instruct_awq/2024-08-22_13-32-37_1x_h100_pcie
+slug: 1x_h100_pcie
+timestamp: 2024-08-22_13-32-37
