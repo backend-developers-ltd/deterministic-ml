@@ -42,11 +42,13 @@ However, vLLM has much narrower scope, hence other than general recommendations 
 * make sure to use exactly the same parameters for the model initialization
   * `enforce_eager=True` 
 * to get the same output for the same input, use the exactly same `SamplingParams` with explicitly set `seed` parameter
+* make sure to explicitly set model `revision` parameter, otherwise depending when the model was downloaded, the results may be different
 
 
 ```python
 model = vllm.LLM(
     model=model_name,
+    revision=model_revision,
     enforce_eager=True,  # Ensure eager mode is enabled
 )
 
