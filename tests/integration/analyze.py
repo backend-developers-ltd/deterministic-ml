@@ -3,6 +3,7 @@ import argparse
 import collections
 import hashlib
 import logging
+import pathlib
 
 import tools.exp
 import yaml
@@ -36,10 +37,11 @@ if __name__ == "__main__":
         output_hash = hash_output(run_output.output)
         runs_by_hash[output_hash].append(run_output)
 
+    cwd_path = pathlib.Path().cwd()
     print(f"Found {len(runs_by_hash)} unique outputs for {len(runs_outputs)} runs")
     for group_no, (output_hash, runs) in enumerate(runs_by_hash.items()):
         print(f"[bold]Group {group_no}[/bold] hash={output_hash[:6]} runs={len(runs)}")
         for run in runs:
-            print(f"  - Run: {run.run_id} ({run.output_dir_path})")
+            print(f"  - Run: {run.run_id} {str(run.output_dir_path.relative_to(cwd_path))!r}")
             print(f"    - {run.sysinfo['cuda']}")
             print(f"    - {run.sysinfo['machine']['gpu']}")
