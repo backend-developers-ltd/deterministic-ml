@@ -69,6 +69,9 @@ def ssh_connect(hostname: str, port: int = 22, username: str | None = None) -> p
         look_for_keys=True,
         allow_agent=True,
     )
+    transport = client.get_transport()
+    assert transport is not None  # for mypy; after connect, transport is set
+    transport.set_keepalive(5)
     return client
 
 
