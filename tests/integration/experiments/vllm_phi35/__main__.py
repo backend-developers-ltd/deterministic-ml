@@ -31,7 +31,7 @@ def main():
     parser.add_argument("output_path", type=pathlib.Path, help="Path to save the output")
     parser.add_argument(
         "--model",
-        default="microsoft/Phi-3-mini-4k-instruct@5a516f86087853f9d560c95eb9209c1d4ed9ff69",
+        default="microsoft/Phi-3.5-mini-instruct@cd6881a82d62252f5a84593c61acf290f15d89e3",
         help="Model name",
     )
     args = parser.parse_args()
@@ -52,9 +52,9 @@ def main():
             tensor_parallel_size=gpu_count,
             # quantization="AWQ",  # Ensure quantization is set if needed
             # tensor_parallel_size=1,  # Set according to the number of GPUs available
+            max_model_len=6144,
             enforce_eager=True,  # Ensure eager mode is enabled
         )
-        model.llm_engine.tokenizer.eos_token_id = 128009  # This is incorrect for this model
 
     def make_prompt(prompt):
         role_templates = {
@@ -75,8 +75,8 @@ def main():
 
     sampling_params = SamplingParams(
         max_tokens=4096,
-        temperature=1000,
-        top_p=0.1,
+        temperature=0.5,
+        top_p=0.95,
         seed=SEED,
     )
 

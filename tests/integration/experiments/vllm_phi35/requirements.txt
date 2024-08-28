@@ -1,0 +1,4 @@
+setuptools
+torch
+pyyaml
+vllm
