@@ -1,0 +1,6 @@
+comment: 1x RTX 4080S
+experiment: vllm_16g
+experiment_hash: exp_hash_v1:2f6b87
+run_id: vllm_16g/2024-08-27_14-58-04_1x_rtx_4080s
+slug: 1x_rtx_4080s
+timestamp: 2024-08-27_14-58-04

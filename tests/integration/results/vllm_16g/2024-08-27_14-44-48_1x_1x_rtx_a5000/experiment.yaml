@@ -1,0 +1,6 @@
+comment: 1x 1x RTX A5000
+experiment: vllm_16g
+experiment_hash: exp_hash_v1:2f6b87
+run_id: vllm_16g/2024-08-27_14-44-48_1x_1x_rtx_a5000
+slug: 1x_1x_rtx_a5000
+timestamp: 2024-08-27_14-44-48

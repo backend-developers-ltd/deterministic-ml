@@ -1,0 +1,23 @@
+gpu_count=1
+Starting model loading
+INFO 08-27 12:59:46 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='microsoft/Phi-3-mini-4k-instruct', speculative_config=None, tokenizer='microsoft/Phi-3-mini-4k-instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=5a516f86087853f9d560c95eb9209c1d4ed9ff69, rope_scaling=None, rope_theta=None, tokenizer_revision=5a516f86087853f9d560c95eb9209c1d4ed9ff69, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=microsoft/Phi-3-mini-4k-instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 08-27 12:59:48 selector.py:236] Cannot use FlashAttention-2 backend due to sliding window.
+INFO 08-27 12:59:48 selector.py:116] Using XFormers backend.
+INFO 08-27 12:59:50 model_runner.py:879] Starting to load model microsoft/Phi-3-mini-4k-instruct...
+INFO 08-27 12:59:50 selector.py:236] Cannot use FlashAttention-2 backend due to sliding window.
+INFO 08-27 12:59:50 selector.py:116] Using XFormers backend.
+INFO 08-27 12:59:50 weight_utils.py:236] Using model weights format ['*.safetensors']
+INFO 08-27 13:01:03 model_runner.py:890] Loading model weights took 7.1183 GB
+INFO 08-27 13:01:04 gpu_executor.py:121] # GPU blocks: 1005, # CPU blocks: 682
+model loading took 80.54 seconds
+Starting 8 responses generation
+WARNING 08-27 13:02:06 scheduler.py:1242] Sequence group 7 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1
+8 responses generation took 191.26 seconds
+{'Count to 1000, skip unpopular numbers': '8826e45b35b12de22a71803cd67cfaf0e47f3d83adbc9c95d9026d864761d8a88850adb3bd115de8f28c73bccb09e7dec0c4f40f0c85972292a72bcc4c3a344e',
+ 'Describe justice system in UK vs USA in 2000-5000 words': '4989a42c2e1fc4552d4f403d0e9b22b5e7144d813ea38a9c1490adc82eee1d1537408c1e0140a2726cafac0ebe8601661fd088f80bb539898a745f5ae41de5ca',
+ 'Describe schooling system in UK vs USA in 2000-5000 words': '85393953c469ff11238c24e7a8c4c8891f0b2f7cf80dc42b15c98c20f9ccb870b7ad4842f9272dd902f2bd7e3c04270adeba92e1e68979e6decd788d63df7ffa',
+ 'Explain me some random problem for me in 2000-5000 words': '5a07c589a60d0c597ec31800171d07c0e5394beab896ad186472e8b589bd3998d1500076af33885addc03a116fc2bf807ebcef4beef2595d49dabae61b811ed0',
+ 'Tell me entire history of USA': '61285b07965a2d1e456aa5a64450c68c3ef01377d2f6f6b87cb146932aeb3bff0ffb0b892c8fcf2c0ba65e6a8e514e78ec1f9bb1c50dc033e8d129049701d989',
+ 'Write a ballad. Pick a random theme.': 'e13a867f6e7a044f0d90bcf4cca2e07373abf93bf072b66a664e1dd71f72092779797dec166559eae130d85a02660d60003c4f230e443848802ec0534abc6e6d',
+ 'Write an epic story about a dragon and a knight': '29549b2b8a3ef34db9fd949e789c27c5418942548414cbc9f8e84d391e6693c5a0ac85018898d590918f584557d1820f5c58062a87c92d380a9ce42ba328e971',
+ 'Write an essay about being a Senior developer.': '53a19fca3c796a5d7c5f2fa3a24577d71bb6a543e2ed367fd36be3b20b84bd17525adb389db04bec804e4134f63f58132029d1e456f4dee119226a40df024b7c'}

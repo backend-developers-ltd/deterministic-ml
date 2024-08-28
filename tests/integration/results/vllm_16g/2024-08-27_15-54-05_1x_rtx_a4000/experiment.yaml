@@ -1,0 +1,6 @@
+comment: 1x RTX A4000
+experiment: vllm_16g
+experiment_hash: exp_hash_v1:46bae4
+run_id: vllm_16g/2024-08-27_15-54-05_1x_rtx_a4000
+slug: 1x_rtx_a4000
+timestamp: 2024-08-27_15-54-05

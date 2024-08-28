@@ -1,0 +1,10 @@
+comment: 1x RTX 3090
+experiment: vllm_phi35
+experiment_hash: exp_hash_v1:c6502f
+run_id: vllm_phi35/2024-08-28_10-03-04_1x_rtx_3090
+slug: 1x_rtx_3090
+time_stats:
+  gathering_sysinfo: 3.15156
+  remote_env_setup: 3.081225
+  running_experiment: 138.39621
+timestamp: 2024-08-28_10-03-04

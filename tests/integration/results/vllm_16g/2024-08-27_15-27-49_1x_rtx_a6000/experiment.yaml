@@ -1,0 +1,6 @@
+comment: 1x RTX A6000
+experiment: vllm_16g
+experiment_hash: exp_hash_v1:39979e
+run_id: vllm_16g/2024-08-27_15-27-49_1x_rtx_a6000
+slug: 1x_rtx_a6000
+timestamp: 2024-08-27_15-27-49

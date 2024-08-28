@@ -1,0 +1,22 @@
+gpu_count=1
+Starting model loading
+INFO 08-27 13:37:26 llm_engine.py:184] Initializing an LLM engine (v0.5.5) with config: model='microsoft/Phi-3-mini-4k-instruct', speculative_config=None, tokenizer='microsoft/Phi-3-mini-4k-instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=5a516f86087853f9d560c95eb9209c1d4ed9ff69, rope_scaling=None, rope_theta=None, tokenizer_revision=5a516f86087853f9d560c95eb9209c1d4ed9ff69, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=microsoft/Phi-3-mini-4k-instruct, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 08-27 13:37:28 selector.py:236] Cannot use FlashAttention-2 backend due to sliding window.
+INFO 08-27 13:37:28 selector.py:116] Using XFormers backend.
+INFO 08-27 13:37:30 model_runner.py:879] Starting to load model microsoft/Phi-3-mini-4k-instruct...
+INFO 08-27 13:37:30 selector.py:236] Cannot use FlashAttention-2 backend due to sliding window.
+INFO 08-27 13:37:30 selector.py:116] Using XFormers backend.
+INFO 08-27 13:37:30 weight_utils.py:236] Using model weights format ['*.safetensors']
+INFO 08-27 13:39:01 model_runner.py:890] Loading model weights took 7.1183 GB
+INFO 08-27 13:39:02 gpu_executor.py:121] # GPU blocks: 4639, # CPU blocks: 682
+model loading took 104.30 seconds
+Starting 8 responses generation
+8 responses generation took 128.40 seconds
+{'Count to 1000, skip unpopular numbers': '4c4ad56d950159f19bdd12edb2174b7251dcab0d84817b0468b9e20c7360674e4f5e4501f48e79dcc1d159b3c4c5f831c48f9a87662434786035c4356b776b73',
+ 'Describe justice system in UK vs USA in 2000-5000 words': '8a2c1f06ea082d73245e084f474b0f98993f389e678850645c711c7f4f7b489b969bf4b0c0b9db0b3773190a1933121bdcd64a2f14df2153e50f6bb93cd12013',
+ 'Describe schooling system in UK vs USA in 2000-5000 words': '1c2e330eaedb19b3b8a0fbce46fe7bd0410123be457d42ffdcb139d327a5a1bba025d1fd88b9f3405682a36f3459c2c562134f17c40e192a218526a860b6103c',
+ 'Explain me some random problem for me in 2000-5000 words': '69f29410af4e74fb5b76a831fe61c74bcadc3cda83792388775e299aa85965c3a006b8744b33a853d2ebb9c6684e2290093b1a0dde46c00db8c451f3d6d4a10d',
+ 'Tell me entire history of USA': 'b6104c38852a60aa9af5216131cb6de27435e14182caab650f7099daab41a6021472fcf29627454570cb1c85c7c5bd389bf67fa72d24187ba192b9b17cc089ee',
+ 'Write a ballad. Pick a random theme.': '5c649e8eb9cbd2cc1fac4edd2482afae4fcaa03319d46be8d48d9780f8eb86428ad34a81865f6dd35f217fd7760bba8946b40163f6f35e78a6265e976fbd3164',
+ 'Write an epic story about a dragon and a knight': '1844470f0e6e3d17730911fa3c2cbae252c04082653c91e3166f66dd859d49c22883c77c3106d6c7cf5734787876447b8f72ce2f5c3b0754555607c1711cda6c',
+ 'Write an essay about being a Senior developer.': '6b58725db3040c3d384cdf2d9b297cd1037f65d2c6a647a7d028ee51e500a22fcdb9615331aa1b3b3b631a742e74a35f854677771f081a62ad80fdacccd69b5b'}

@@ -1,0 +1,6 @@
+comment: 1x A100 SXM4
+experiment: vllm_16g
+experiment_hash: exp_hash_v1:39979e
+run_id: vllm_16g/2024-08-27_15-36-20_1x_a100_sxm4
+slug: 1x_a100_sxm4
+timestamp: 2024-08-27_15-36-20
