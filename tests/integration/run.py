@@ -56,6 +56,18 @@ def prepare_env(remote_run_command, run_dir, experiment_dir_name):
     )
 
 
+class TimingStats:
+    def __init__(self):
+        self.timings = {}
+
+    @contextlib.contextmanager
+    def timed(self, name):
+        start = datetime.now()
+        yield
+        took = datetime.now() - start
+        self.timings[name] = took.total_seconds()
+
+
 def main():
     parser = argparse.ArgumentParser(description="deterministic-ml experiment runner")
     parser.add_argument("experiment", help="Experiment name")
@@ -94,16 +106,18 @@ def main():
             f,
         )
 
+    ts = TimingStats()
     # configure local logging to print to file and stderr
     log_file = local_output_dir / "run.local.log"
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        handlers=[
-            logging.FileHandler(log_file),
-            RichHandler(),
-        ],
-    )
+    file_log_handler = logging.FileHandler(log_file)
+    file_log_handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+    rich_log_handler = RichHandler(log_time_format="%X")
+    if hasattr(rich_log_handler, "_log_render"):
+        rich_log_handler._log_render.level_width = 2
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.INFO)
+    root_logger.addHandler(file_log_handler)
+    root_logger.addHandler(rich_log_handler)
     LOG.info("Starting experiment %s with comment: %s", args.experiment, args.comment)
     LOG.info("Local log file: %s", log_file)
 
@@ -137,7 +151,8 @@ def main():
         rsync_local_to_remote(wheel, remote_experiment_dir)
 
     LOG.info("Setting up remote environment")
-    prepare_env(remote_exec_command, remote_experiment_dir, local_experiment_dir.name)
+    with ts.timed("remote_env_setup"):
+        prepare_env(remote_exec_command, remote_experiment_dir, local_experiment_dir.name)
 
     LOG.info("Gathering system info")
     in_env_cmd = f"""
@@ -148,17 +163,19 @@ def main():
     source .venv/bin/activate;
     """
 
-    remote_exec_command(
-        f"{in_env_cmd} python -m deterministic_ml._internal.sysinfo > {remote_output_dir / 'sysinfo.yaml'}"
-    )
+    with ts.timed("gathering_sysinfo"):
+        remote_exec_command(
+            f"{in_env_cmd} python -m deterministic_ml._internal.sysinfo > {remote_output_dir / 'sysinfo.yaml'}"
+        )
 
     LOG.info("Running experiment code on remote")
 
     try:
-        remote_exec_command(
-            f"{in_env_cmd} python -m {local_experiment_dir.name} {remote_output_dir}"
-            f" | tee {remote_output_dir / 'stdout.txt'}"
-        )
+        with ts.timed("running_experiment"):
+            remote_exec_command(
+                f"{in_env_cmd} python -m {local_experiment_dir.name} {remote_output_dir}"
+                f" | tee {remote_output_dir / 'stdout.txt'}"
+            )
     finally:
         LOG.info("Syncing output back to local")
 
@@ -169,6 +186,20 @@ def main():
             port,
             exclude_from=RSYNC_IGNORE_FILEPATH,
         )
+
+        with (local_output_dir / "experiment.yaml").open("w") as f:
+            yaml.dump(
+                {
+                    "experiment": args.experiment,
+                    "experiment_hash": tools.exp.get_experiment_hash(args.experiment),
+                    "comment": args.comment,
+                    "timestamp": timestamp,
+                    "slug": slug,
+                    "run_id": exp_run_id,
+                    "time_stats": ts.timings,
+                },
+                f,
+            )
 
     LOG.info("Done")
 
